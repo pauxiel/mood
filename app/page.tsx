@@ -10,7 +10,6 @@ export default function Home() {
           you have to do is be honest.
         </p>
         <div>
-
           <Link href="/Journal">
             <button className="bg-blue-600 px-4 py-2 rounded-lg text-xl">
               get started
