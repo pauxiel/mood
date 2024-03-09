@@ -15,6 +15,7 @@ export default function Home() {
               get started
             </button>
           </Link>
+
         </div>
       </div>
     </div>
