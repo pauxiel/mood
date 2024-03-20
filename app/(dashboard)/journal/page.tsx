@@ -1,5 +1,7 @@
 import { prisma } from '@/util/db'
 import { getUserByClerkID } from '@/util/auth'
+import NewEntryCard from '@/components/NewEntryCard'
+import EntryCard from '@/components/EntryCard'
 const getEntries = async () => {
   const user = await getUserByClerkID()
   const entries = await prisma.journalEntry.findMany({
@@ -16,8 +18,18 @@ const getEntries = async () => {
 
 const JournalPage = async () => {
   const entries = await getEntries()
-  console.log('entries ', entries)
-  return <div>journal</div>
+  // console.log('entries ', entries)
+  return (
+    <div className="p-10 bg-zinc-500/50">
+      <h2 className="text-3xl mb-8">Journal</h2>
+      <div className="grid grid-cols-3 gap-4 p-10">
+        <NewEntryCard />
+        {entries.map((entry) => (
+          <EntryCard key={entry.id} entry={entry} />
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default JournalPage
