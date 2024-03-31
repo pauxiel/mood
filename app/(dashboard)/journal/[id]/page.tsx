@@ -1,3 +1,4 @@
+
 import Editor from '@/components/Editor'
 import { getUserByClerkID } from '@/util/auth'
 import { prisma } from '@/util/db'
@@ -22,5 +23,6 @@ const EntryPage = ({ params }) => {
       <Editor entry={entry} />
     </div>
   )
+
 }
 export default EntryPage
